@@ -18,19 +18,16 @@ const NewBlogPost = (props) => {
 
   const postProduct = async (e) => {
     e.preventDefault();
+
     try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/626fd65617c4e00015d7a083/experiences",
-        {
-          method: "POST",
-          body: JSON.stringify({ ...addProduct }),
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZmZDY1NjE3YzRlMDAwMTVkN2EwODMiLCJpYXQiOjE2NTE0OTY1MzUsImV4cCI6MTY1MjcwNjEzNX0.8KY63vz_cG51-fBlBKeyzC8NE1kgqbjKuVVMCqVTllA",
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      let response = await fetch("http://localhost:3001/products/", {
+        method: "POST",
+        body: JSON.stringify(addProduct),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       console.log(response);
       if (response.ok) {
         console.log(response);
@@ -44,7 +41,7 @@ const NewBlogPost = (props) => {
           imageUrl: "",
         });
       } else {
-        alert("error");
+        console.log("error");
       }
     } catch (error) {
       alert("error", error);
@@ -83,7 +80,7 @@ const NewBlogPost = (props) => {
             size="lg"
             value={addProduct.price}
             onChange={(e) =>
-              setAddProduct({ ...addProduct, price: e.target.value })
+              setAddProduct({ ...addProduct, price: parseInt(e.target.value) })
             }
           />
         </Form.Group>
