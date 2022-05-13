@@ -12,26 +12,33 @@ const NewBlogPost = (props) => {
     <Container className="new-blog-container">
       <Form className="mt-5">
         <Form.Group controlId="blog-form" className="mt-3">
-          <Form.Label>Title</Form.Label>
-          <Form.Control size="lg" placeholder="Title" />
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" size="lg" />
         </Form.Group>
+        <Form.Group controlId="blog-form" className="mt-3">
+          <Form.Label>Brand</Form.Label>
+          <Form.Control type="text" size="lg" />
+        </Form.Group>
+        <Form.Group controlId="blog-form" className="mt-3">
+          <Form.Label>Price</Form.Label>
+          <Form.Control type="number" size="lg" />
+        </Form.Group>
+
         <Form.Group controlId="blog-category" className="mt-3">
           <Form.Label>Category</Form.Label>
           <Form.Control size="lg" as="select">
-            <option>Category1</option>
-            <option>Category2</option>
-            <option>Category3</option>
-            <option>Category4</option>
-            <option>Category5</option>
+            <option>Phones</option>
+            <option>Shoes</option>
+            <option>Drinks</option>
+            <option>Accessories</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="blog-content" className="mt-3">
-          <Form.Label>Blog Content</Form.Label>
-          <ReactQuill
-            value={text}
-            onChange={handleChange}
-            className="new-blog-content"
-          />
+        <Form.Group controlId="blog-form" className="mt-3">
+          <Form.Label>Description</Form.Label>
+          <Form.Control type="text" size="lg" />
+        </Form.Group>
+        <Form.Group controlId="blog-form" className="mt-3">
+          <Form.Control type="file" size="lg" />
         </Form.Group>
         <Form.Group className="d-flex mt-3 justify-content-end">
           <Button type="reset" size="lg" variant="outline-dark">
